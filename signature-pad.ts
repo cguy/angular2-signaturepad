@@ -62,7 +62,7 @@ export class SignaturePad implements AfterContentInit, OnDestroy {
     // some browsers report devicePixelRatio as less than 1
     // and only part of the canvas is cleared then.
     const ratio: number = Math.max(window.devicePixelRatio || 1, 1);
-    const canvas: any = this.signaturePad._canvas;
+    const canvas: any = this.signaturePad.canvas;
     canvas.width = canvas.offsetWidth * ratio;
     canvas.height = canvas.offsetHeight * ratio;
     canvas.getContext('2d').scale(ratio, ratio);
@@ -125,10 +125,10 @@ export class SignaturePad implements AfterContentInit, OnDestroy {
 
     switch (option) {
       case 'canvasHeight':
-        this.signaturePad._canvas.height = value;
+        this.signaturePad.canvas.height = value;
         break;
       case 'canvasWidth':
-        this.signaturePad._canvas.width = value;
+        this.signaturePad.canvas.width = value;
         break;
       default:
         this.signaturePad[option] = value;
